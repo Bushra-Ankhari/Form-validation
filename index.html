@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;500&family=Mulish:ital,wght@0,300;1,200;1,300;1,500&display=swap" rel="stylesheet">
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" integrity="sha512-PgQMlq+nqFLV4ylk1gwUOgm6CtIIXkKwaIHp/PAIWHzig/lKZSEGKEysh0TCVbHJXCLN7WetD8TFecIky75ZfQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel = "stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <div class = "container">
+        <div class = "header">
+            <h3>Create New Account</h3>
+        </div>
+        <form class="form" id="form">
+            <div class="form-control">
+                <label>UserName</label>
+                <input type="text" id="username" placeholder="Enter your fullname" name="username"/>
+                <i class="fa-duotone fa-circle-check fa-xs" style="--fa-primary-color: #30a207; --fa-secondary-color: #30a207;"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation fa-xs" style="color: #eb3f14;"></i>
+                <small>Error messages</small>
+            </div>
+
+            <div class="form-control">
+                <label>Email</label>
+                <input type="text" id="email" placeholder="Enter your email" name="email"/>
+                <i class="fa-duotone fa-circle-check fa-xs" style="--fa-primary-color: #30a207; --fa-secondary-color: #30a207;"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation fa-xs" style="color: #eb3f14;"></i>
+                <small>Error messages</small>
+            </div>
+
+            <div class="form-control">
+                <label>Phone Number</label>
+                <input type="text" id="phonenumber" placeholder="Enter your phone number" name="phonenumber"/>
+                <i class="fa-duotone fa-circle-check fa-xs" style="--fa-primary-color: #30a207; --fa-secondary-color: #30a207;"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation fa-xs" style="color: #eb3f14;"></i>
+                <small>Error messages</small>
+            </div>
+
+            <div class="form-control">
+                <label>Password</label>
+                <input type="text" id="password" placeholder="Enter your password" name="password"/>
+                <i class="fa-duotone fa-circle-check fa-xs" style="--fa-primary-color: #30a207; --fa-secondary-color: #30a207;"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation fa-xs" style="color: #eb3f14;"></i>
+                <small>Error messages</small>
+            </div>
+
+            <div class="form-control">
+                <label>Confirm Password</label>
+                <input type="text" id="cpassword" placeholder="Rewrite your password" name="cpassword"/>
+                <i class="fa-duotone fa-circle-check fa-xs" style="--fa-primary-color: #30a207; --fa-secondary-color: #30a207;"></i>
+                <i class="fa-sharp fa-solid fa-circle-exclamation fa-xs" style="color: #eb3f14;"></i>
+                <small>Error messages</small>
+            </div>
+                <!--<button id="my-button-id">xyz</button> -->
+            <input type = "submit" value = "Submit" class="btn" id="formsubmit" name="submit"/>
+
+        </form>
+    </div>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="index.js" defer></script>
+  <script>
+    (function() {
+    const form = document.getElementById('form');
+    form.addEventListener('submit', function(e) {
+    // Prevent default behavior
+    e.preventDefault();
+    // Create payload as new FormData object
+    const payload = new FormData(form);
+    // Post the payload using Fetch
+    fetch('https://httpbin.org/post', {
+    method: 'POST',
+    body: payload,
+    })
+    .then(res => res.json())
+    .then(data => console.log(data))
+    })
+    })()
+    </script>
+
+
+   <!-- <script src="object.js" defer></script>  -->
+</body>
+</html>
